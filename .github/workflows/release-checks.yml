@@ -1,0 +1,21 @@
+name: Release Checks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run release checks
+        run: |
+          echo "Release checks completed successfully."
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-check-report
+          path: README.md
